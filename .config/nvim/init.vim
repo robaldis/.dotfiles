@@ -20,6 +20,9 @@ au VimEnter * RainbowParenthesesToggle
 
 
 
+
+
+
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -80,7 +83,7 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-" nnoremap <leader>ps :Rg<SPACE>
+nnoremap <leader>ps :Rg<SPACE>
 
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
@@ -118,10 +121,10 @@ nnoremap <C-l> :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
 nnoremap <leader><C-r> :lua require("harpoon.mark").clear_all()<CR>
 
-nnoremap <leader>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
+ nnoremap <leader>tj :lua require("harpoon.term").gotoTerminal(1)<CR>
+ nnoremap <leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
 " not sure what command it will send
-nnoremap <leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
+ nnoremap <leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
 " let g:mkdp_auto_start = 1
@@ -133,5 +136,9 @@ nnoremap <leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
 "     au BufLeave *.md :MarkdownPreviewStop
 " 
 " augroup end
+
+
+" set t_BE=
+
 
 
