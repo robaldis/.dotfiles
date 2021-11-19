@@ -23,7 +23,7 @@ au VimEnter * RainbowParenthesesToggle
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 " LSP (autocompletion) ...
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'

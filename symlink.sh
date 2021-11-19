@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Removing existing config files/directories"
 
 # Remove all the old config files
