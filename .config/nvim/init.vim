@@ -62,7 +62,11 @@ set background=dark
 " Vimwiki setup
 let g:vimwiki_list = [{'path': '~/ownCloud/University/', 
 \ 'syntax': 'markdown', 
+\ 'ext': '.md'}, 
+\ {'path': '~/ownCloud/Brain', 
+\ 'syntax': 'markdown',
 \ 'ext': '.md'}]
+
 
 
 " if (executable('rg'))
@@ -80,7 +84,6 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-" nnoremap <leader>ps :Rg<SPACE>
 
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
@@ -97,16 +100,16 @@ set completeopt=menuone,noinsert,noselect
 
 " LSP remaps
 noremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+noremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 
-
-
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-lua require('lspconfig').pyls.setup{on_attach=require'completion'.on_attach}
-lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach, root_dir= function() return vim.loop.cwd() end }
+" lua require('lspconfig').pyls.setup{on_attach=require'completion'.on_attach}
+" lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach, root_dir= function() return vim.loop.cwd() end }
 
 
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
@@ -124,14 +127,5 @@ nnoremap <leader>tk :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
 
-" let g:mkdp_auto_start = 1
-" let g:mkdp_auto_stop = 1
-
-" augroup markdown
-"     autocmd!
-"     au BufEnter *.md :MarkdownPreview
-"     au BufLeave *.md :MarkdownPreviewStop
-" 
-" augroup end
 
 
