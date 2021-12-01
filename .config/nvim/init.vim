@@ -62,10 +62,12 @@ set background=dark
 " Vimwiki setup
 let g:vimwiki_list = [{'path': '~/ownCloud/University/', 
 \ 'syntax': 'markdown', 
-\ 'ext': '.md'}, 
+\ 'ext': '.md',
+\ 'name': 'University'}, 
 \ {'path': '~/ownCloud/Brain', 
 \ 'syntax': 'markdown',
-\ 'ext': '.md'}]
+\ 'ext': '.md',
+\ 'name': 'Brain'}]
 
 
 
