@@ -26,7 +26,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-owncloud
-setxkbmap -option "caps:swapscape"
+
+setxkbmap -option ctrl:nocaps
 
 feh --randomize --bg-fill ~/Pictures/Wallpaper/*
