@@ -12,7 +12,7 @@ rm -rf ~/.config/i3
 echo "Linking the new config files"
 
 ln -s ~/.dotfiles/.zshrc ~/
-ln -s ~/.profile ~/
+ln -s ~/.dotfiles/.profile ~/
 ln -s ~/.dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/.tmux.conf ~/
 ln -s ~/.dotfiles/.config/nvim/ ~/.config/
