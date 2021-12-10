@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo apt install -y keepassx tmux curl i3 zsh owncloud-client
+sudo apt install -y keepassx tmux curl i3 zsh owncloud-client feh
 
 # isntalling brave
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
