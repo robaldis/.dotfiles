@@ -29,4 +29,4 @@ fi
 
 setxkbmap -option ctrl:nocaps
 
-feh --randomize --bg-fill ~/Pictures/Wallpaper/*
+feh --randomize --bg-scale ~/Pictures/Wallpaper/*
