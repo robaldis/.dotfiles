@@ -99,3 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias hdmi="xrandr --output HDMI-A-0 --auto --right-of eDP"
+alias caps="setxkbmap -option ctrl:nocaps"
