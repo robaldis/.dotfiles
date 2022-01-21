@@ -100,5 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias hdmi="xrandr --output HDMI-A-0 --auto --right-of eDP"
+alias hdmion="xrandr --output HDMI-A-0 --auto --right-of eDP"
+alias hdmioff="xrandr --output HDMI-A-0 --off"
 alias caps="setxkbmap -option ctrl:nocaps"
