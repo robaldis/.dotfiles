@@ -115,3 +115,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+alias hdmion="xrandr --output HDMI-A-0 --auto --right-of eDP"
+alias hdmioff="xrandr --output HDMI-A-0 --off"
+alias caps="setxkbmap -option ctrl:nocaps"
+alias bright="sudo brightnessctl set 255"
+alias obsidian="/home/robert/.local/bin/Obsidian.AppImage & disown"

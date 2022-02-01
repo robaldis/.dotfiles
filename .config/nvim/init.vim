@@ -26,7 +26,7 @@ au VimEnter * RainbowParenthesesToggle
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 " LSP (autocompletion) ...
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
@@ -65,7 +65,13 @@ set background=dark
 " Vimwiki setup
 let g:vimwiki_list = [{'path': '~/ownCloud/University/', 
 \ 'syntax': 'markdown', 
-\ 'ext': '.md'}]
+\ 'ext': '.md',
+\ 'name': 'University'}, 
+\ {'path': '~/ownCloud/Brain', 
+\ 'syntax': 'markdown',
+\ 'ext': '.md',
+\ 'name': 'Brain'}]
+
 
 
 " if (executable('rg'))
@@ -83,7 +89,6 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>ps :Rg<SPACE>
 
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
@@ -101,16 +106,16 @@ set completeopt=menuone,noinsert,noselect
 
 " LSP remaps
 noremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+noremap <leader>vh :lua vim.lsp.buf.hover()<CR>
+
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 
-
-
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-lua require('lspconfig').pyls.setup{on_attach=require'completion'.on_attach}
-lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach, root_dir= function() return vim.loop.cwd() end }
+" lua require('lspconfig').pyls.setup{on_attach=require'completion'.on_attach}
+" lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach, root_dir= function() return vim.loop.cwd() end }
 
 
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
@@ -127,4 +132,3 @@ nnoremap <leader><C-r> :lua require("harpoon.mark").clear_all()<CR>
 " not sure what command it will send
  nnoremap <leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
-
