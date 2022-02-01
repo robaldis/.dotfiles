@@ -95,6 +95,7 @@ nnoremap <leader>g :Git<CR>
 nnoremap <leader>gs :Git status<CR>
 nnoremap <leader>gc :Git commit -m "
 nnoremap <leader>ga :Git add .<CR>
+nnoremap <leader>gp :Git push<CR>
 
 set completeopt=menuone,noinsert,noselect
 
@@ -126,19 +127,4 @@ nnoremap <leader><C-r> :lua require("harpoon.mark").clear_all()<CR>
 " not sure what command it will send
  nnoremap <leader>cj :lua require("harpoon.term").sendCommand(1, 1)<CR>
 nnoremap <leader>ck :lua require("harpoon.term").sendCommand(1, 2)<CR>
-
-" let g:mkdp_auto_start = 1
-" let g:mkdp_auto_stop = 1
-
-" augroup markdown
-"     autocmd!
-"     au BufEnter *.md :MarkdownPreview
-"     au BufLeave *.md :MarkdownPreviewStop
-" 
-" augroup end
-
-
-" set t_BE=
-
-
 
