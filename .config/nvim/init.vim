@@ -30,7 +30,9 @@ call plug#begin('~/.vim/plugged')
 " LSP (autocompletion) ...
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lua/completion-nvim'
+
 
 " Telescope requirements ...
 Plug 'nvim-lua/popup.nvim'
@@ -102,21 +104,39 @@ nnoremap <leader>gc :Git commit -m "
 nnoremap <leader>ga :Git add .<CR>
 nnoremap <leader>gp :Git push<CR>
 
-set completeopt=menuone,noinsert,noselect
-
 " LSP remaps
+" set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 noremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 noremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']                           
+
+lua <<EOF
+local lsp_installer = require("nvim-lsp-installer")
+
+local lsp_installer = require("nvim-lsp-installer")
+
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
+EOF
+                                                                                                    
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-
-
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-" lua require('lspconfig').pyls.setup{on_attach=require'completion'.on_attach}
-" lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach, root_dir= function() return vim.loop.cwd() end }
-
 
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
