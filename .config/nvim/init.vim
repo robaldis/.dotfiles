@@ -18,11 +18,6 @@ set incsearch
 set scrolloff=10
 au VimEnter * RainbowParenthesesToggle
 
-
-
-
-
-
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -40,7 +35,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 Plug 'kien/rainbow_parentheses.vim'
 
 " Notes
@@ -94,7 +89,6 @@ nnoremap <leader>u :UndotreeShow<CR>
 
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
-" nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>pf :lua require('telescope.builtin').find_files()<CR>
 
 
@@ -105,22 +99,24 @@ nnoremap <leader>ga :Git add .<CR>
 nnoremap <leader>gp :Git push<CR>
 
 " LSP remaps
-" set completeopt=menuone,noinsert,noselect
-set completeopt=menu,menuone,noselect
 noremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+noremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+noremap <leader>vr :lua vim.lsp.buf.references()<CR>
+noremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 noremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 
+set completeopt=menu,menuone,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']                           
 
+" LSP setup
 lua <<EOF
-local lsp_installer = require("nvim-lsp-installer")
-
 local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = {highlight_hovers_item = true, 
+    show_guides = true}
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
@@ -134,9 +130,6 @@ lsp_installer.on_server_ready(function(server)
 end)
 EOF
                                                                                                     
-
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
 
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
