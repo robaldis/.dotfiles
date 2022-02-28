@@ -42,6 +42,9 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+" jupyter notebooks
+Plug 'goerz/jupytext.vim'
+
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'ThePrimeagen/harpoon'
 
@@ -88,6 +91,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 " Copy to clipboard
 vnoremap <leader>y "+y
+
 
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
