@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo apt install -y keepassx tmux curl i3 zsh owncloud-client feh
+sudo apt install -y keepassx tmux curl i3 zsh owncloud-client feh i3blocks rofi 
 
 # installing only office desktop
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
