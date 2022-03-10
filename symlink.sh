@@ -10,6 +10,7 @@ rm -rf ~/.config/nvim
 rm -rf ~/.config/i3
 rm -rf ~/.config/compton.conf
 rm -rf ~/.Xresources
+rm -rf ~/.fonts
 
 echo "Linking the new config files"
 
@@ -21,6 +22,7 @@ ln -s ~/.dotfiles/.config/nvim/ ~/.config/
 ln -s ~/.dotfiles/.config/i3/ ~/.config/
 ln -s ~/.dotfiles/.config/compton.conf ~/.config/
 ln -s ~/.dotfiles/.Xresources ~/
+ln -s ~/.dotfiles/.fonts ~/
 
 # Making zsh defulat terminal
 sudo chsh -s /bin/zsh
