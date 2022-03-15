@@ -233,8 +233,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
-# Keyboard layout
-exec xclip
 exec brave-browser
 exec owncloud
 exec spotify
