@@ -90,6 +90,7 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 " Copy to clipboard
+" set clipboard+=unnamedplus
 vnoremap <leader>y "+y
 
 
