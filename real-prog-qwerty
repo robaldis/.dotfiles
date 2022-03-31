@@ -28,7 +28,7 @@ xkb_symbols "real-prog-qwerty" {
     key <AD09> {	[	     o,    	O		]	};
     key <AD10> {	[	     p,	    P		]	};
     key <AD11> {	[ ampersand,	percent	]	};
-    key <AD12> {	[   exclam,	    at  	]	};
+    key <AD12> {	[       at,	    exclam  	]	};
 
     key <AC01> {	[	      a,	A 	        	]	};
     key <AC02> {	[	      s,	S	        	]	};
@@ -55,7 +55,7 @@ xkb_symbols "real-prog-qwerty" {
 
     key <BKSL> {	[ backslash,    bar     	]	};
 
-    key <LSGT> {	[ percent,	    at          ]	};
+    key <LSGT> {	[ asciitilde,	grave       ]	};
 };
 
 
