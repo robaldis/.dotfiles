@@ -117,6 +117,8 @@ unset __conda_setup
 
 alias hdmion="xrandr --output HDMI-A-0 --auto --right-of eDP"
 alias hdmioff="xrandr --output HDMI-A-0 --off"
-alias caps="setxkbmap -option ctrl:nocaps"
+alias caps="setxkbmap -option ctrl:nocaps -layout real-prog-qwerty"
 alias bright="sudo brightnessctl set 255"
 alias obsidian="/home/robert/.local/bin/Obsidian.AppImage & disown"
+alias video="/home/robert/.local/bin/shotcut-linux-x86_64-220130.AppImage & disown"
+

@@ -23,6 +23,7 @@ ln -s ~/.dotfiles/.config/i3/ ~/.config/
 ln -s ~/.dotfiles/.config/compton.conf ~/.config/
 ln -s ~/.dotfiles/.Xresources ~/
 ln -s ~/.dotfiles/.fonts ~/
+ln -s ~/.dotfiles/real-prog-qwerty /usr/share/X11/xkb/symbols/
 
 # Making zsh defulat terminal
 sudo chsh -s /bin/zsh
