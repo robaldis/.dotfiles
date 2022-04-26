@@ -166,10 +166,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -238,6 +238,13 @@ exec owncloud
 exec spotify
 exec_always compton --config ~/.config/compton.conf
 exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.png -t"
+
+# Pop-out window
+
+bindsym $mod+Shift+p floating enable; resize set 640 px 360 px; sticky enable; move window to position 3170 px 30 px
+# Pop-in window
+bindsym $mod+Shift+i floating disable 
+
 
 #Needed for i3-gaps
 #hide_edge_borders both

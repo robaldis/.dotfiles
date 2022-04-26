@@ -5,7 +5,7 @@ echo "Removing existing config files/directories"
 rm -rf ~/.zshrc
 rm -rf ~/.profile
 rm -rf ~/.gitconfig
-rm -rf ~/.tmux_conf
+rm -rf ~/.tmux.conf
 rm -rf ~/.config/nvim
 rm -rf ~/.config/i3
 rm -rf ~/.config/compton.conf
@@ -24,6 +24,7 @@ ln -s ~/.dotfiles/.config/compton.conf ~/.config/
 ln -s ~/.dotfiles/.Xresources ~/
 ln -s ~/.dotfiles/.fonts ~/
 ln -s ~/.dotfiles/real-prog-qwerty /usr/share/X11/xkb/symbols/
+ln -s ~/.dotfiles/.local/bin/tmux-sessionizer ~/
 
 # Making zsh defulat terminal
 sudo chsh -s /bin/zsh
