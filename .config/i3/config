@@ -240,10 +240,9 @@ exec_always compton --config ~/.config/compton.conf
 exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.png -t"
 
 # Pop-out window
-
 bindsym $mod+Shift+p floating enable; resize set 640 px 360 px; sticky enable; move window to position 3170 px 30 px
 # Pop-in window
-bindsym $mod+Shift+i floating disable 
+bindsym $mod+Shift+y fullscreen disable; floating disable; sticky disable
 
 
 #Needed for i3-gaps
