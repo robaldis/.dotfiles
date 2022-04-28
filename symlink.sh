@@ -24,7 +24,7 @@ ln -s ~/.dotfiles/.config/compton.conf ~/.config/
 ln -s ~/.dotfiles/.Xresources ~/
 ln -s ~/.dotfiles/.fonts ~/
 ln -s ~/.dotfiles/real-prog-qwerty /usr/share/X11/xkb/symbols/
-ln -s ~/.dotfiles/.local/bin/tmux-sessionizer ~/
+ln -s ~/.dotfiles/.local/bin/tmux-sessionizer ~/.local/bin/
 
 # Making zsh defulat terminal
 sudo chsh -s /bin/zsh
