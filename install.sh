@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 sudo apt install -y keepassx tmux curl i3 zsh owncloud-client feh i3blocks rofi fzf
 
 # installing only office desktop
@@ -19,9 +18,17 @@ sudo apt install -y brave-browser
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # You have to press enter for this to install
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install -y neovim
+cd Documents
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout release-0.7
+sudo make CMAKE_BUILD_TYPE=Release
+sudo make install
+cd ../..
+
+# sudo add-apt-repository -y ppa:neovim-ppa/unstable
+# sudo apt update
+# sudo apt install -y neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
@@ -32,4 +39,5 @@ read installConfigs
 if $installConfigs == "y"
 then
 	# run symlink script
+    ./symlink
 fi
