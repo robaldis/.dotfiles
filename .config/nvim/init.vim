@@ -22,13 +22,20 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
-" LSP (autocompletion) ...
 Plug 'morhetz/gruvbox'
 Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
+
+" LSP (autocompletion) ...
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lua/completion-nvim'
-
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 " Telescope requirements ...
 Plug 'nvim-lua/popup.nvim'
@@ -53,6 +60,8 @@ Plug 'ThePrimeagen/harpoon'
 
 call plug#end()
 
+lua require("stuff")
+
 
 let g:gruvbox_constrast_dark = 'hard'
 set termguicolors
@@ -76,30 +85,8 @@ let g:vimwiki_list = [{'path': '~/ownCloud/University/',
 \ 'name': 'Brain'}]
 
 " Treesitter setup
-lua << EOF
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = {"python"},
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-
-EOF
 
 
 " if (executable('rg'))
@@ -121,11 +108,8 @@ nnoremap <leader>u :UndotreeShow<CR>
 " set clipboard+=unnamedplus
 vnoremap <leader>y "+y
 
-
-
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
 nnoremap <leader>pf :lua require('telescope.builtin').find_files()<CR>
-
 
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>gs :Git status<CR>
