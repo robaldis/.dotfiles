@@ -148,6 +148,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 for_window [class="Spotify"] move to workspace $ws10
 for_window [class="notion-desktop"] move to workspace $ws9
+for_window [class="obsidian"] move to workspace $ws8
 
 
 # reload the configuration file
@@ -234,6 +235,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 exec brave-browser
+exec Obsidian.AppImage
 exec owncloud
 exec spotify
 exec_always compton --config ~/.config/compton.conf
