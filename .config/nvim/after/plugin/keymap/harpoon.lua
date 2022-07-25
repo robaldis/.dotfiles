@@ -1,3 +1,4 @@
+
 local nnoremap = require ("robert.keymap").nnoremap
 
 local silent = { silent = true }
@@ -16,4 +17,3 @@ nnoremap("<leader><C-r>", function() require("harpoon.mark").clear_all() end, si
 
 nnoremap("<leader>tj", function() require("harpoon.term").gotoTerminal(1)end, silent)
 nnoremap("<leader>tk", function() require("harpoon.term").gotoTerminal(2)end, silent)
-
