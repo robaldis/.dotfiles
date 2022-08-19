@@ -26,6 +26,10 @@ sudo make CMAKE_BUILD_TYPE=Release
 sudo make install
 cd ../..
 
+cd ~
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # sudo add-apt-repository -y ppa:neovim-ppa/unstable
 # sudo apt update
 # sudo apt install -y neovim
