@@ -1,4 +1,7 @@
 local cmp = require("cmp")
+print("SOMETHING")
+
+
 
 cmp.setup({
     snippet = {
@@ -42,3 +45,35 @@ tabnine:setup({
 	run_on_every_keystroke = true,
 	snippet_placeholder = "..",
 })
+
+
+-- Setting up LSP servers
+--
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
+}
+
+-- Python
+require('lspconfig')['pylsp'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- C/C++
+require('lspconfig')['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- javascript/typescript
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- lua
+require('lspconfig')['sumneko_lua'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}

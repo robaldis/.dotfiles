@@ -9,7 +9,6 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use 'morhetz/gruvbox'
-
  
   -- Telescope
   use('nvim-lua/popup.nvim')
@@ -27,7 +26,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
-  use ('tzachar/cmp-tabnine', { run = './install.sh' })
+  use ('tzachar/cmp-tabnine', {run = './install.sh' })
 
   use 'ThePrimeagen/harpoon'
   use ('nvim-treesitter/nvim-treesitter', {
