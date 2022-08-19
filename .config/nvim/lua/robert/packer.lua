@@ -34,6 +34,12 @@ return require('packer').startup(function()
   })
   use 'mbbill/undotree'
   use("TimUntersberger/neogit")
-  
+
+  -- Debugger
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'leoluz/nvim-dap-go'
+  use 'mfussenegger/nvim-dap-python'
+  use 'theHamsta/nvim-dap-virtual-text'
 
 end)

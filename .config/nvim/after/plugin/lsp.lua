@@ -1,5 +1,9 @@
 local cmp = require("cmp")
+local nnoremap = require ("robert.keymap").nnoremap
+local inoremap = require ("robert.keymap").inoremap
 print("SOMETHING")
+
+require("nvim-lsp-installer").setup {}
 
 
 
@@ -47,33 +51,26 @@ tabnine:setup({
 })
 
 
--- Setting up LSP servers
---
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
+local function config(_config)
+	return vim.tbl_deep_extend("force", {
+		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		on_attach = function()
+			nnoremap("gd", function() vim.lsp.buf.definition() end)
+			nnoremap("K", function() vim.lsp.buf.hover() end)
+			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
+			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
+			nnoremap("[d", function() vim.diagnostic.goto_next() end)
+			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
+			nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
+			nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
+			nnoremap("<leader>vrn", function() vim.lsp.buf.rename() end)
+			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
+		end,
+	}, _config or {})
+end
 
--- Python
-require('lspconfig')['pylsp'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
 
--- C/C++
-require('lspconfig')['clangd'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
-
--- javascript/typescript
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
-
--- lua
-require('lspconfig')['sumneko_lua'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+require("lspconfig").pylsp.setup(config())
+require("lspconfig").clangd.setup(config())
+require("lspconfig").tsserver.setup(config())
+require("lspconfig").sumneko_lua.setup(config())
