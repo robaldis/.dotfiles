@@ -115,8 +115,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source ~/.zsh_profile
-
 alias hdmion="xrandr --output HDMI-A-0 --auto --right-of eDP"
 alias hdmioff="xrandr --output HDMI-A-0 --off"
 alias caps="setxkbmap -option ctrl:nocaps -layout real-prog-qwerty"
