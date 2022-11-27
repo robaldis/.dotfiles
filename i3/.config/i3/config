@@ -245,10 +245,3 @@ exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate
 bindsym $mod+Shift+p floating enable; resize set 640 px 360 px; sticky enable; move window to position 3170 px 30 px
 # Pop-in window
 bindsym $mod+Shift+y fullscreen disable; floating disable; sticky disable
-
-
-#Needed for i3-gaps
-#hide_edge_borders both
-for_window [class="^.*"] border pixel 2 
-gaps inner 15 
-gaps outer 15
