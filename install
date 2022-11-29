@@ -6,7 +6,7 @@ sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake\
 
 # tools
 sudo apt install -y keepassx tmux curl i3 zsh  feh i3blocks rofi\
-    fzf stow cura
+    fzf stow cura dotnet6
 
 # Owncloud (This seems to be version specific for some fucking reason)
 wget -nv https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_22.04/Release.key -O - | sudo apt-key add -
