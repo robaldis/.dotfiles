@@ -1,10 +1,81 @@
+local nnoremap = require ("robert.keymap").nnoremap
+local inoremap = require ("robert.keymap").inoremap
+local mason = require('mason')
+local masonConfig = require('mason-lspconfig')
+local cmp = require('cmp')
+
+
+-- Mason setups
+mason.setup()
+masonConfig.setup({
+    ensure_installed = {'csharp_ls', 'sumneko_lua'}
+})
+
+-- completion setups
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        end
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<tab>'] = cmp.mapping.select_next_item(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = {
+        {name = 'nvim_lsp'}
+    }, {
+        {name = 'buffer'}
+    }
+})
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Keymappings
+local on_attach = function(client, bufnr)
+    -- Enable completion
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    nnoremap("<leader>K", function() vim.lsp.buf.hover() end)
+    nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
+    nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
+    nnoremap("<leader>gr", function() vim.lsp.buf.references() end)
+    nnoremap("<leader>gD", function() vim.lsp.buf.declaration() end)
+    nnoremap("<leader>gt", function() vim.lsp.buf.type_definition() end)
+    nnoremap("<leader>e", function() vim.diagnostic.open_float() end)
+end
+
+-- Server Setup
+masonConfig.setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+            on_attach=on_attach,
+            capabilities=capabilities
+        }
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    --[[
+    ["rust_analyzer"] = function ()
+        require("rust-tools").setup {}
+    end
+    ]]--
+}
+
+
+
+
+
+--[[
 local cmp = require("cmp")
 local nnoremap = require ("robert.keymap").nnoremap
 local inoremap = require ("robert.keymap").inoremap
-print("SOMETHING")
 
 require("nvim-lsp-installer").setup {}
-
 
 
 cmp.setup({
@@ -74,3 +145,4 @@ require("lspconfig").pylsp.setup(config())
 require("lspconfig").clangd.setup(config())
 require("lspconfig").tsserver.setup(config())
 require("lspconfig").sumneko_lua.setup(config())
+]]--

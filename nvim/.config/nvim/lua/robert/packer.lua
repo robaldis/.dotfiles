@@ -14,9 +14,16 @@ return require('packer').startup(function()
   use('nvim-lua/popup.nvim')
   use 'nvim-lua/plenary.nvim'
   use('nvim-telescope/telescope.nvim', {tag = '0.1.0'})
-  -- use('nvim-telescope/telescope-fzy-native.nvim')
 
   -- LSP
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/vim-vsnip'
+
+  --[[
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'nvim-lua/completion-nvim'
@@ -27,19 +34,30 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use ('tzachar/cmp-tabnine', {run = './install.sh' })
+  ]]--
 
+  -- git
+  use 'TimUntersberger/neogit'
+
+  -- Harpoon
   use 'ThePrimeagen/harpoon'
+
+  -- Treesitter 
   use ('nvim-treesitter/nvim-treesitter', {
       run =  'TSUpdate'
   })
-  use 'mbbill/undotree'
-  use("TimUntersberger/neogit")
 
+  -- UndoTree
+  use 'mbbill/undotree'
+
+
+  --[[
   -- Debugger
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
   use 'leoluz/nvim-dap-go'
   use 'mfussenegger/nvim-dap-python'
   use 'theHamsta/nvim-dap-virtual-text'
+  ]]--
 
 end)
