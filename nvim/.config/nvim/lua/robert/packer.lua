@@ -9,6 +9,7 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use 'morhetz/gruvbox'
+  use('ryanoasis/vim-devicons')
  
   -- Telescope
   use('nvim-lua/popup.nvim')
@@ -16,28 +17,18 @@ return require('packer').startup(function()
   use('nvim-telescope/telescope.nvim', {tag = '0.1.0'})
 
   -- LSP
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/vim-vsnip'
+  use('williamboman/mason.nvim')
+  use('williamboman/mason-lspconfig.nvim')
+  use('neovim/nvim-lspconfig')
+  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/nvim-cmp')
+  use('hrsh7th/vim-vsnip')
 
-  --[[
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'nvim-lua/completion-nvim'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'L3MON4D3/LuaSnip'
-  use ('tzachar/cmp-tabnine', {run = './install.sh' })
-  ]]--
+  -- lualine
+  use('nvim-lualine/lualine.nvim')
 
   -- git
-  use 'TimUntersberger/neogit'
+  use 'tpope/vim-fugitive'
 
   -- Harpoon
   use 'ThePrimeagen/harpoon'
