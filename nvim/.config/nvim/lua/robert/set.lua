@@ -27,5 +27,7 @@ vim.opt.cmdheight = 1
 
 vim.opt.colorcolumn = "80"
 
+vim.opt.fixendofline = false
+
 vim.g.mapleader = " "
 

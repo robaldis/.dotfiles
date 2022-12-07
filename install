@@ -6,7 +6,7 @@ sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake\
 
 # tools
 sudo apt install -y keepassx tmux curl i3 zsh  feh i3blocks rofi\
-    fzf stow cura dotnet6
+    fzf stow cura dotnet6 virt-manager
 
 # Owncloud (This seems to be version specific for some fucking reason)
 wget -nv https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_22.04/Release.key -O - | sudo apt-key add -
@@ -19,12 +19,6 @@ curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg -
 echo "deb [signed-by=/usr/share/keyrings/spotify.gpg] http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt -y install spotify-client
-
-# installing only office desktop (No longer works)
-#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
-#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
-#sudo apt update
-#sudo apt install onlyoffice-desktopeditors
 
 # isntalling brave
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg

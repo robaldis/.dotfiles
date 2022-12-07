@@ -28,7 +28,8 @@ return require('packer').startup(function()
   use('nvim-lualine/lualine.nvim')
 
   -- git
-  use 'tpope/vim-fugitive'
+  use('tpope/vim-fugitive')
+  use('lewis6991/gitsigns.nvim')
 
   -- Harpoon
   use 'ThePrimeagen/harpoon'
