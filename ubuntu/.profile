@@ -27,6 +27,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 
-setxkbmap -option ctrl:nocaps -layout real-prog-qwerty
+setxkbmap -option ctrl:nocaps 
 
 feh --randomize --bg-scale ~/Pictures/Wallpaper/*.jpg

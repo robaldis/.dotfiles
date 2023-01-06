@@ -9,8 +9,8 @@ sudo apt install -y keepassx tmux curl i3 zsh  feh i3blocks rofi\
     fzf stow cura dotnet6 virt-manager
 
 # Owncloud (This seems to be version specific for some fucking reason)
-wget -nv https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_22.04/Release.key -O - | sudo apt-key add -
-echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_22.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud.list
+wget -nv https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_20.04/Release.key -O - | sudo apt-key add -
+echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_20.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud.list
 sudo apt update
 sudo apt install -y owncloud-client
 
