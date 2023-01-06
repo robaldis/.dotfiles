@@ -8,7 +8,7 @@ local cmp = require('cmp')
 -- Mason setups
 mason.setup()
 masonConfig.setup({
-    ensure_installed = {'csharp_ls', 'sumneko_lua'}
+    ensure_installed = {'sumneko_lua'}
 })
 
 -- completion setups
@@ -65,8 +65,17 @@ masonConfig.setup_handlers {
     end
     ]]--
 }
+-- Setup Csharp LSP
+local pid = vim.fn.getpid()
 
+local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
 
+require('lspconfig').omnisharp.setup({
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+    -- Additional configuration can be added here
+    on_attach=on_attach,
+    capabilities=capabilities
+})
 
 
 
