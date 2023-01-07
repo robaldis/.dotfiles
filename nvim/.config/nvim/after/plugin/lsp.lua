@@ -77,7 +77,7 @@ require('lspconfig').omnisharp.setup({
     capabilities=capabilities
 })
 
-
+require('inlay-hints').config()
 
 --[[
 local cmp = require("cmp")

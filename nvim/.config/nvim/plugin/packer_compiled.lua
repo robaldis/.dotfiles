@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/robert/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["inlay-hints.nvim"] = {
+    loaded = true,
+    path = "/home/robert/.local/share/nvim/site/pack/packer/start/inlay-hints.nvim",
+    url = "https://github.com/shurizzle/inlay-hints.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/robert/.local/share/nvim/site/pack/packer/start/lualine.nvim",
