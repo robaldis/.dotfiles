@@ -44,6 +44,8 @@ local on_attach = function(client, bufnr)
     nnoremap("<leader>gD", function() vim.lsp.buf.declaration() end)
     nnoremap("<leader>gt", function() vim.lsp.buf.type_definition() end)
     nnoremap("<leader>e", function() vim.diagnostic.open_float() end)
+    nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+
 end
 
 -- Server Setup

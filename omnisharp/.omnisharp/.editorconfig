@@ -1,3 +1,5 @@
+[*.{cs,vb}]
+
 # Name all private fields with `_` prefix and camelCase
 dotnet_naming_rule.camel_case_for_private_internal_fields.severity = suggestion
 dotnet_naming_rule.camel_case_for_private_internal_fields.symbols  = private_internal_fields
