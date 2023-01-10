@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Thanks ThePrimeagen
 
-
-
 if [[ $# -eq 1 ]]; then
     selected=$1
 else

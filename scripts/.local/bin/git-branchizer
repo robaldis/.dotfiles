@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Thanks ThePrimeagen
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(git branch --list | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+git checkout $(selected)
