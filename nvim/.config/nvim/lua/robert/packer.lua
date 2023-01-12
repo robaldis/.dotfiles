@@ -5,12 +5,13 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
   -- Colorscheme
-  use 'morhetz/gruvbox'
+  use('morhetz/gruvbox')
   use('ryanoasis/vim-devicons')
- 
+  use('markvincze/panda-vim')
+
   -- Telescope
   use('nvim-lua/popup.nvim')
   use 'nvim-lua/plenary.nvim'
@@ -33,16 +34,16 @@ return require('packer').startup(function()
   use('lewis6991/gitsigns.nvim')
 
   -- Harpoon
-  use 'ThePrimeagen/harpoon'
+  use('ThePrimeagen/harpoon')
 
   -- Treesitter 
-  use ('nvim-treesitter/nvim-treesitter', {
+  use('nvim-treesitter/nvim-treesitter', {
       run =  'TSUpdate'
   })
-  use ('nvim-treesitter/playground')
+  use('nvim-treesitter/playground')
 
   -- UndoTree
-  use 'mbbill/undotree'
+  use('mbbill/undotree')
 
 
   --[[

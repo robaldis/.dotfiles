@@ -1,5 +1,5 @@
-local nnoremap = require ("robert.keymap").nnoremap
-local inoremap = require ("robert.keymap").inoremap
+local nnoremap = require("robert.keymap").nnoremap
+local inoremap = require("robert.keymap").inoremap
 local mason = require('mason')
 local masonConfig = require('mason-lspconfig')
 local cmp = require('cmp')
@@ -8,7 +8,7 @@ local cmp = require('cmp')
 -- Mason setups
 mason.setup()
 masonConfig.setup({
-    ensure_installed = {'sumneko_lua'}
+    ensure_installed = { 'sumneko_lua' }
 })
 
 -- completion setups
@@ -25,9 +25,9 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = {
-        {name = 'nvim_lsp'}
+        { name = 'nvim_lsp' }
     }, {
-        {name = 'buffer'}
+        { name = 'buffer' }
     }
 })
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
     -- Enable completion
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    nnoremap("<leader>K", function() vim.lsp.buf.hover() end)
+    nnoremap("K", function() vim.lsp.buf.hover() end)
     nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
     nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
     nnoremap("<leader>gr", function() vim.lsp.buf.references() end)
@@ -45,6 +45,7 @@ local on_attach = function(client, bufnr)
     nnoremap("<leader>gt", function() vim.lsp.buf.type_definition() end)
     nnoremap("<leader>e", function() vim.diagnostic.open_float() end)
     nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+    nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
 
 end
 
@@ -53,10 +54,10 @@ masonConfig.setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
-    function (server_name) -- default handler (optional)
+    function(server_name) -- default handler (optional)
         require("lspconfig")[server_name].setup {
-            on_attach=on_attach,
-            capabilities=capabilities
+            on_attach = on_attach,
+            capabilities = capabilities
         }
     end,
     -- Next, you can provide a dedicated handler for specific servers.
@@ -65,7 +66,7 @@ masonConfig.setup_handlers {
     ["rust_analyzer"] = function ()
         require("rust-tools").setup {}
     end
-    ]]--
+    ]] --
 }
 -- Setup Csharp LSP
 local pid = vim.fn.getpid()
@@ -73,10 +74,10 @@ local pid = vim.fn.getpid()
 local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
 
 require('lspconfig').omnisharp.setup({
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
     -- Additional configuration can be added here
-    on_attach=on_attach,
-    capabilities=capabilities
+    on_attach = on_attach,
+    capabilities = capabilities
 })
 
 require('inlay-hints').config()
@@ -156,4 +157,4 @@ require("lspconfig").pylsp.setup(config())
 require("lspconfig").clangd.setup(config())
 require("lspconfig").tsserver.setup(config())
 require("lspconfig").sumneko_lua.setup(config())
-]]--
+]] --
