@@ -11,6 +11,9 @@ return require('packer').startup(function()
   use('morhetz/gruvbox')
   use('ryanoasis/vim-devicons')
   use('markvincze/panda-vim')
+  use('EdenEast/nightfox.nvim')
+  use('catppuccin/vim')
+  use('folke/tokyonight.nvim')
 
   -- Telescope
   use('nvim-lua/popup.nvim')
