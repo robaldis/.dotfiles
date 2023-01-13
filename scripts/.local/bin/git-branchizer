@@ -11,4 +11,4 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-git checkout $(selected)
+git checkout $selected
