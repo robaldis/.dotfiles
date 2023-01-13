@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Thanks ThePrimeagen
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(dotnet sln list | grep csproj | xargs -I % basename % .csproj | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+echo "dotnet run --project $selected"
+
+dotnet run --project $selected
