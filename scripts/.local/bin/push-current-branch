@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cur_branch=$(git branch --show-current)
+
+git push origin $cur_branch $@

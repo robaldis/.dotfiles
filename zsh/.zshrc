@@ -122,3 +122,4 @@ alias bright="sudo brightnessctl set 255"
 alias obsidian="/home/robert/.local/bin/Obsidian.AppImage & disown"
 alias video="/home/robert/.local/bin/shotcut-linux-x86_64-220130.AppImage & disown"
 
+alias gitpush="~/.local/bin/push-current-branch"
