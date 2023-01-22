@@ -1,1 +1,12 @@
-packer_compiled.lua
+nvim/.config/nvim/plugin/
+
+
+hjson
+jsonschema
+milc-color
+pygmentize
+python-argcomplete-check-easy-install-script
+python-argcomplete-tcsh
+register-python-argcomplete
+activate-global-python-argcomplete
+qmk
