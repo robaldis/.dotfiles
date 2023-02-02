@@ -28,3 +28,5 @@ vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+y")
 vnoremap("<leader>y", "\"+y")
 
+
+nnoremap("<C-n>", "<cmd>NERDTreeToggle<CR>")

@@ -69,6 +69,8 @@ masonConfig.setup_handlers {
     ]] --
 }
 -- Setup Csharp LSP
+
+
 local pid = vim.fn.getpid()
 
 local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
@@ -80,7 +82,6 @@ require('lspconfig').omnisharp.setup({
     capabilities = capabilities
 })
 
-require('inlay-hints').config()
 
 --[[
 local cmp = require("cmp")

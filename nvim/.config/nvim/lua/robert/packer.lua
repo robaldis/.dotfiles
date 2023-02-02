@@ -47,6 +47,7 @@ return require('packer').startup(function()
 
   -- UndoTree
   use('mbbill/undotree')
+  use('preservim/nerdtree')
 
 
   -- Debugger
