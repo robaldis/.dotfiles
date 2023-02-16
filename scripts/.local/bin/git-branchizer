@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Thanks ThePrimeagen
 
 if [[ $# -eq 1 ]]; then
@@ -11,6 +11,4 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-echo $selected
-echo git checkout $selected
 git checkout $selected

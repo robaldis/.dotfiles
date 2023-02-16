@@ -3,15 +3,13 @@ local vnoremap = require ("robert.keymap").vnoremap
 local inoremap = require ("robert.keymap").inoremap
 
 
-nnoremap("<leader>pv", "<cmd>Ex<enter>") 
+nnoremap("<leader>pv", "<cmd>Ex<enter>")
 
 -- Window movement
 nnoremap("<leader>h", "<cmd>wincmd h<CR>")
 nnoremap("<leader>l", "<cmd>wincmd l<CR>")
 nnoremap("<leader>k", "<cmd>wincmd k<CR>")
 nnoremap("<leader>j", "<cmd>wincmd j<CR>")
-
-nnoremap("<leader>u", "<cmd>UndotreeShow<CR>")
 
 -- Delete to null
 nnoremap("<leader>d", "\"_d")
@@ -31,5 +29,5 @@ vnoremap("<leader>y", "\"+y")
 
 nnoremap("<C-n>", "<cmd>NERDTreeToggle<CR>")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-y>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-t>", "<cmd>cprev<CR>zz")
