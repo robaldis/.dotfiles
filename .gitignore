@@ -10,3 +10,5 @@ python-argcomplete-tcsh
 register-python-argcomplete
 activate-global-python-argcomplete
 qmk
+
+*.AppImage
