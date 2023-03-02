@@ -8,17 +8,11 @@ sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake\
 sudo apt install -y keepassx tmux curl i3 zsh  feh i3blocks rofi\
     fzf stow cura dotnet6 virt-manager
 
-# Owncloud (This seems to be version specific for some fucking reason)
-wget -nv https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_20.04/Release.key -O - | sudo apt-key add -
-echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/2.10/linux/Ubuntu_20.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud.list
-sudo apt update
-sudo apt install -y owncloud-client
-
 # Spotify
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/spotify.gpg
-echo "deb [signed-by=/usr/share/keyrings/spotify.gpg] http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
-sudo apt -y install spotify-client
+sudo apt install spotify-client
 
 # isntalling brave
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
