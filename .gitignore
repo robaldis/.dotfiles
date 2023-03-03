@@ -12,3 +12,4 @@ activate-global-python-argcomplete
 qmk
 
 *.AppImage
+scripts/.local/bin/kubectl
