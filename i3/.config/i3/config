@@ -238,7 +238,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec brave-browser
 exec Obsidian.AppImage
 exec spotify
-exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.png -t"
+exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.jpg -t"
 # no caps lock
 exec setxkbmap -option ctrl:nocaps
 # random background
