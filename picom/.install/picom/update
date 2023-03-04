@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+pushd ~/Applications/picom
+git pull
+git submodule update --init --recursive
+
+meson setup --buildtype=release . build
+ninja -C build
+ninja -C build install
+
+popd
