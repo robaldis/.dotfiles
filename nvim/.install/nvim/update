@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pushd ~/Documents/neovim
+git checkout stable
+sudo make CMAKE_BUILD_TYPE=Release
+sudo make install
+popd

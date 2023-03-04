@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo cmake --build build/ --target uninstall
+pushd ~/Applications
+rm -rf neovim
+popd
