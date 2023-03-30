@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Thanks ThePrimeagen
 
+echo "fjdklsa"
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
