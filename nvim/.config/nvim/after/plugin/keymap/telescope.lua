@@ -4,6 +4,11 @@ nnoremap("<leader>ps", function()
     require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})
 end)
 
+nnoremap("<leader>qs", function()
+    require('telescope.builtin').setqflist(require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})
+)
+end)
+
 nnoremap("<leader>pf", function() 
     require('telescope.builtin').find_files()
 end)

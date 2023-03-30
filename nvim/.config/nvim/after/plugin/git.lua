@@ -1,15 +1,19 @@
 local nnoremap = require('robert.keymap').nnoremap
 
+-- Keymappings
 nnoremap("<leader>g", "<cmd>Git<CR>");
-
-nnoremap("<leader>ga", "<cmd>!git fetch --all<CR>");
+nnoremap("<leader>ga", "<cmd>Git fetch --all<CR>");
 nnoremap("<leader>gp", "<cmd>Git push<CR>");
 nnoremap("<leader>gR", function()
     local revert = vim.fn.input("commit to revert: ")
     vim.cmd("Git revert" .. revert);
 end);
 nnoremap("<leader>gl", "<cmd>Git log<CR>");
-nnoremap("<leader>gd", "<cmd>Gvdiffsplit<CR>");
+-- Diffs and splits
+nnoremap("<leader>GD", "<cmd>Gvdiffsplit!<CR>");
+nnoremap("<leader>vv", "<cmd>diffget //2<CR>"); -- use master
+nnoremap("<leader>mm", "<cmd>diffget //3<CR>"); -- user head
+
 require('gitsigns').setup {
   signs = {
     add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
