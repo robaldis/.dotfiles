@@ -14,6 +14,8 @@ nnoremap("<leader>GD", "<cmd>Gvdiffsplit!<CR>");
 nnoremap("<leader>vv", "<cmd>diffget //2<CR>"); -- use master
 nnoremap("<leader>mm", "<cmd>diffget //3<CR>"); -- user head
 
+nnoremap("<leader>mm", "<cmd>Telescope git_branches<CR>");
+
 require('gitsigns').setup {
   signs = {
     add          = { hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
