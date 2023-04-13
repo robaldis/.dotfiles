@@ -243,6 +243,7 @@ exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate
 exec setxkbmap -option ctrl:nocaps
 # random background
 exec feh --randomize --bg-scale ~/Pictures/Wallpaper/*.jpg
+exec picom --config ~/.config/picom/picom
 
 # Pop-out window
 bindsym $mod+Shift+p floating enable; resize set 640 px 360 px; sticky enable; move window to position 3170 px 30 px
