@@ -241,6 +241,8 @@ exec spotify
 exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.jpg -t"
 # no caps lock
 exec setxkbmap -option ctrl:nocaps
+exec xinput set-props 10 324 1
+exec xinput set-prop 10 339 1
 # random background
 exec feh --randomize --bg-scale ~/Pictures/Wallpaper/*.jpg
 exec picom --config ~/.config/picom/picom
