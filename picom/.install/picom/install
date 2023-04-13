@@ -14,7 +14,7 @@ libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev \
 libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev \
 libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
 
-meson setup --buildtype=release . build
-ninja -C build
-ninja -C build install
+sudo meson setup --buildtype=release . build
+sudo ninja -C build
+sudo ninja -C build install
 popd
