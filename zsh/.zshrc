@@ -126,3 +126,7 @@ alias gitpush="~/.local/bin/push-current-branch"
 
 source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
 
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
