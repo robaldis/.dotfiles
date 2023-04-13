@@ -1,2 +1,1 @@
-vsync = true;
 opacity-rule = ["92:class_g = 'Gnome-terminal'"];
