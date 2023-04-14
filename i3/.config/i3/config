@@ -241,11 +241,12 @@ exec spotify
 exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate.jpg -t"
 # no caps lock
 exec setxkbmap -option ctrl:nocaps
-exec xinput set-prop 10 323 1
-exec xinput set-prop 10 339 1
+# naturale scrolling 
+exec xinput set-prop 10 325 1
+exec xinput set-prop 10 346 1
 # random background
 exec feh --randomize --bg-scale ~/Pictures/Wallpaper/*.jpg
-exec picom --config ~/.config/picom/picom -b
+#exec picom --config ~/.config/picom/picom -b
 
 # Pop-out window
 bindsym $mod+Shift+p floating enable; resize set 640 px 360 px; sticky enable; move window to position 3170 px 30 px
