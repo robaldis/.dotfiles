@@ -26,8 +26,9 @@ vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+y")
 vnoremap("<leader>y", "\"+y")
 
-
+vim.g.NERDTreeShowHidden=1
 nnoremap("<C-n>", "<cmd>NERDTreeToggle<CR>")
+
 
 vim.keymap.set("n", "<C-y>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-t>", "<cmd>cprev<CR>zz")
