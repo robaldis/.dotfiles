@@ -1,1 +1,3 @@
 opacity-rule = ["92:class_g = 'Gnome-terminal'"];
+background = "glx";
+
