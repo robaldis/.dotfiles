@@ -242,8 +242,8 @@ exec_always xautolock -time 30 -locker "i3lock -i ~/Pictures/Wallpaper/HellsGate
 # no caps lock
 exec setxkbmap -option ctrl:nocaps
 # naturale scrolling 
-exec xinput set-prop 18 325 1
-exec xinput set-prop 18 346 1
+exec xinput set-prop "VEN_04F3:00 04F3:3242 Touchpad" "libinput Tapping Enabled" 1
+exec xinput set-prop "VEN_04F3:00 04F3:3242 Touchpad" "libinput Natural Scrolling Enabled" 1
 # random background
 exec feh --randomize --bg-scale ~/Pictures/Wallpaper/*.jpg
 #exec picom --config ~/.config/picom/picom &
