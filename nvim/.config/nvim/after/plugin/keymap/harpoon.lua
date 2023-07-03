@@ -3,6 +3,13 @@ local nnoremap = require ("robert.keymap").nnoremap
 
 local silent = { silent = true }
 
+require("harpoon").setup({
+    global_settings = {
+        mark_branch = true
+    }
+
+})
+
 nnoremap("<leader>a", function() require("harpoon.mark").add_file() end, silent)
 
 nnoremap("<C-g>", function() require("harpoon.mark").rm_file() end, silent)
