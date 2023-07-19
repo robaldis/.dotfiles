@@ -4,6 +4,8 @@ local mason = require('mason')
 local masonConfig = require('mason-lspconfig')
 local cmp = require('cmp')
 
+require("inlay-hints").setup()
+local ih = require("inlay-hints")
 
 -- Mason setups
 mason.setup()
@@ -46,6 +48,7 @@ local on_attach = function(client, bufnr)
     nnoremap("<leader>e", function() vim.diagnostic.open_float() end)
     nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
     nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
+    ih.on_attach(client, bufnr)
 
 end
 
@@ -75,8 +78,26 @@ local pid = vim.fn.getpid()
 
 local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
 
+vim.lsp.set_log_level('debug')
+
 require('lspconfig').omnisharp.setup({
-    cmd = { omnisharp_bin, "--languageserver", "RoslynExtensionsOptions:EnableDecompilationSupport=true", "--hostPID", tostring(pid) },
+    cmd = { omnisharp_bin,
+    "--languageserver",
+    "RoslynExtensionsOptions:EnableDecompilationSupport=true",
+    "RoslynExtensionsOptions:EnableAnalyzersSupport=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForLiteralParameters=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForIndexerParameters=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForObjectCreationParameters=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForOtherParameters=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatDifferOnlyBySuffix=false",
+    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchMethodIntent=false",
+    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchArgumentName=false",
+    "RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitVariableTypes=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForLambdaParameterTypes=true",
+    "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true",
+    "--hostPID", tostring(pid) },
     -- Additional configuration can be added here
     on_attach = on_attach,
     capabilities = capabilities

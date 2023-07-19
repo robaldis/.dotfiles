@@ -27,7 +27,7 @@ return require('packer').startup(function()
   use('hrsh7th/cmp-nvim-lsp')
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/vim-vsnip')
-  use('shurizzle/inlay-hints.nvim')
+  use('simrat39/inlay-hints.nvim')
 
   -- lualine
   use('nvim-lualine/lualine.nvim')
