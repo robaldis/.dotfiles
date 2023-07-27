@@ -26,6 +26,7 @@ vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>yy", "\"+y")
 vnoremap("<leader>y", "\"+y")
 
+vim.g.NERDTreeWinSize=100
 vim.g.NERDTreeShowHidden=1
 nnoremap("<C-n>", "<cmd>NERDTreeToggle<CR>")
 

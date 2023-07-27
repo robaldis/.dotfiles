@@ -57,4 +57,6 @@ return require('packer').startup(function()
   --use 'mfussenegger/nvim-dap-python'
   use 'theHamsta/nvim-dap-virtual-text'
 
+  use 'epwalsh/obsidian.nvim'
+
 end)
