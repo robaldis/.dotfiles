@@ -115,12 +115,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias hdmion="xrandr --output DP-2-1 --auto --right-of eDP-1"
+alias hdmion="xrandr --output DP-2-1 --auto --left-of eDP-1"
 alias hdmioff="xrandr --output DP-2-1 --off"
 alias caps="setxkbmap -option ctrl:nocaps"
 alias bright="sudo brightnessctl set 50%"
 alias obsidian="/home/robert/.local/bin/Obsidian.AppImage & disown"
 alias video="/home/robert/.local/bin/shotcut-linux-x86_64-220130.AppImage & disown"
+alias vdown="sudo wg-quick down wg0"
+alias vup="sudo wg-quick up wg0"
 
 alias gitpush="~/.local/bin/push-current-branch"
 
