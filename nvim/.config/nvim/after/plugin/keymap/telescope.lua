@@ -20,3 +20,12 @@ end)
 nnoremap("<leader>pw", function()
     require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }
 end)
+
+
+nnoremap("<leader>ge", function()
+    require('telescope.builtin').diagnostics { severity = 'error' }
+end)
+
+nnoremap("<leader>gbe", function()
+    require('telescope.builtin').diagnostics { bufnr = 0, severity = 'error' }
+end)
