@@ -40,6 +40,9 @@ return {
                 builtin.diagnostics({severity = vim.diagnostic.severity.ERROR})
             end, {desc = "[S]erch [S]elect Builtin"})
 
+        vim.keymap.set('n', '<leader>sgb', builtin.git_branches, {desc = "[S]earch [G]it [B]ranches"})
+        vim.keymap.set('n', '<leader>sgc', builtin.git_commits, {desc = "[S]earch [G]it [C]ommits"})
+
         vim.keymap.set('n', '<leader>/', function()
             -- You can pass additional configuration to Telescope to change the theme, layout, etc.
             builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
