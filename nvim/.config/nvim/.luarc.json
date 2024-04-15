@@ -1,0 +1,27 @@
+{
+    "workspace.library": [
+        "/home/robert/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/local/share/nvim/runtime/lua",
+        "/home/robert/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/cmp-path/lua",
+        "/home/robert/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/mason.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/robert/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/telescope-fzf-native.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/LuaSnip/lua",
+        "/home/robert/.local/share/nvim/lazy/mason-tool-installer.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/telescope-ui-select.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/cmp_luasnip/lua",
+        "/home/robert/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/home/robert/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/home/robert/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/home/robert/.local/share/nvim/lazy/fidget.nvim/lua",
+        "/home/robert/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/robert/.dotfiles/nvim/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
