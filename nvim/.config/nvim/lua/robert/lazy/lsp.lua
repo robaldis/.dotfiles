@@ -5,6 +5,7 @@ return
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'lvimuser/lsp-inlayhints.nvim',
 
       { 'j-hui/fidget.nvim', opts = {} },
 
@@ -31,7 +32,7 @@ return
           local builtin = require('telescope.builtin')
           map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
           map('gr', builtin.lsp_references, '[G]oto [R]eferences')
-          map('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
+          map('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
           map('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
           map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
           map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
@@ -43,6 +44,7 @@ return
 
           -- higligh other symbols when we hover over it
           local client = vim.lsp.get_client_by_id(event.data.client_id)
+          require("lsp-inlayhints").on_attach(client, event.buf)
           if client and client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -80,7 +82,31 @@ return
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        omnisharp = {},
+        omnisharp = {
+            settings = {
+                 RoslynExtensionsOptions = {
+                    -- Enables support for roslyn analyzers, code fixes and rulesets.
+                    EnableAnalyzersSupport = true,
+                    InlayHintsOptions =  {
+                        EnableForParameters = true,
+                        ForLiteralParameters = true,
+                        ForObjectCreationParameters = true,
+                        ForOtherParameters= true,
+                        SuppressForParametersThatDifferOnlyBySuffix= false,
+                        SuppressForParametersThatMatchMethodIntent= false,
+                        SuppressForParametersThatMatchArgumentName= false,
+                        EnableForTypes= true,
+                        ForImplicitVariableTypes= true,
+                        ForLambdaParameterTypes= true,
+                        ForImplicitObjectCreation= true
+                    }
+                },
+                FormattingOptions = {
+                    EnableEditorConfigSupport = true
+                }
+
+            }
+        },
 
         lua_ls = {
           -- cmd = {...},

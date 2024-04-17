@@ -31,3 +31,8 @@ vim.opt.fixendofline = false
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300 --reduce key combo timeout
 
+local function a (x, y)
+    print(x, y)
+end
+
+a(1, 2)
