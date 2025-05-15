@@ -1,0 +1,13 @@
+@import "catppuccin-frappe"
+
+configuration {
+ display-drun: "Applications";
+ modi: "window,drun,ssh,combi";
+ font: "UbuntuMono Nerd Font Mono 20";
+ combi-modi: "window,drun,ssh";
+ show-icons: true;
+ icon-theme: "Papirus";
+ }
+
+@theme "nordic"
+

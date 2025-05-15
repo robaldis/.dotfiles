@@ -30,3 +30,4 @@ vim.opt.fixendofline = false
 
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300 --reduce key combo timeout
+
