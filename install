@@ -1,47 +1,13 @@
 #!/bin/bash
 
-# Prerequisites
-sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake\
-    cmake g++ pkg-config unzip curl doxygen brightnessctl playerctl
 
-# tools
-sudo apt install -y keepassx tmux curl i3 zsh  feh i3blocks rofi\
-    fzf stow cura dotnet6 virt-manager
+# tools all the packages I will need
+sudo pacman -S --noconfirm tmux feh fzf stow brave-browser obsidian kubectl
 
-# Nextcloud client
-sudo add-apt-repository ppa:nextcloud-devs/client -y
-sudo apt update
-sudo apt install nextcloud-client -y
 
-# Spotify
-curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update
-sudo apt install spotify-client
+FILE=/bin/zsh
+if test ! -f "$FILE"; then
+	# installing oh-my-zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# isntalling brave
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install -y brave-browser
-
-# install neovim
-pushd ~/Documents
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-sudo make CMAKE_BUILD_TYPE=Release
-sudo make install
-popd
-
-# Install plugged for neovim package manager
-pushd ~
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-popd
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# installing oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
