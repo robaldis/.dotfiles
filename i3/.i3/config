@@ -147,6 +147,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+workspace 2 output DP-2-1
+
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
@@ -195,8 +197,8 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws8; workspace $ws10
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 for_window [class="Spotify"] move to workspace $ws10
 for_window [class="obsidian"] move to workspace $ws9
