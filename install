@@ -4,7 +4,7 @@
 # tools all the packages I will need
 sudo pacman -S --noconfirm tmux feh fzf stow brave-browser obsidian kubectl \
     ttf-ubuntu-mono-nerd go rofi timeshift discord spotify-launcher \
-    nextcloud-client terraform moonlight darktable \
+    nextcloud-client terraform moonlight darktable ansible\
     --noconfirm
 
 
