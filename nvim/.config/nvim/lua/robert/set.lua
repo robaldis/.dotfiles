@@ -13,6 +13,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.wrap = false
+vim.opt.winborder = "rounded"
 
 vim.opt.swapfile = false
 vim.opt.backup = false

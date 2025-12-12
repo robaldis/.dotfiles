@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<Cr>")
 
 vim.keymap.set('v', '<leader>y', '\"+y', {desc ='[Y]ank to clipboard'})
+vim.keymap.set('v', '<leader>d', '\"+d', {desc ='[D]elete to clipboard'})
 
 vim.keymap.set('i', '<C-c>', '<Esc>', {desc = 'Ctrl-c same as ESC'})
 
