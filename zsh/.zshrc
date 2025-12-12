@@ -142,4 +142,5 @@ alias kun="kubectl config set-context --current --namespace="
 alias kgp="kubectl get pods"
 
 alias esp=". ~/Applications/esp-idf/export.sh"
+export PATH="$PATH:/home/raldis/.dotnet/tools"
 
