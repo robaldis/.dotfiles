@@ -1,4 +1,5 @@
 -- For csharp_ls
+-- requires dotnet SDK 9
 -- `dotnet tool install --global csharp-ls`
 -- add that to the path
 
