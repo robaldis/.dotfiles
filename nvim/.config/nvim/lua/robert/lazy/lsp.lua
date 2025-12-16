@@ -6,6 +6,7 @@ return
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       'lvimuser/lsp-inlayhints.nvim',
+      'Hoffs/omnisharp-extended-lsp.nvim',
 
       { 'j-hui/fidget.nvim', opts = {} },
 
@@ -31,6 +32,8 @@ return
 
           local builtin = require('telescope.builtin')
           map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
+          map('gdd', require('omnisharp_extended').lsp_definition, '[G]oto [D]ecompilation [D]efinition')
+          map('gdi', require('omnisharp_extended').lsp_implementation, '[G]oto [D]ecompilation [I]mplementation')
           map('gr', builtin.lsp_references, '[G]oto [R]eferences')
           map('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
           map('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')

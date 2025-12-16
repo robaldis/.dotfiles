@@ -1,0 +1,25 @@
+﻿#!/bin/bash
+
+if [[-z $1 ]]; then
+    echo "Need something to run dummy"
+fi
+
+
+if [[ $1 -eq "workflow"]]; then
+    # run platform local testing
+    pushd
+    cd ~/Documents/platform-local-testing/
+    ./run.sh preflight
+    ./run.sh up
+    ./kafka/run.sh up
+    ./entityindexers/run.sh up
+    popd
+    oaci
+    oaprod
+    # run the database
+    ./scripts/runAndDeployDB.sh
+
+
+
+
+fi

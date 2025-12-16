@@ -2,7 +2,7 @@ return {
     {
     "tpope/vim-fugitive",
     dependencies = {
-        'lewis6991/gitsigns.nvim'
+        {'lewis6991/gitsigns.nvim', tag='1.0.2'}
     },
     config = function ()
         require('gitsigns').setup({
