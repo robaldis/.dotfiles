@@ -38,7 +38,7 @@ return {
             -- TODO: Maybe add in the telescope references
             bufmap('n', 'sr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', '[S]earch [R]eference')
             bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', '[G]oto [R]eference')
-            bufmap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', '[C]ode [A]ctions')
+            bufmap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', '[C]ode [A]ctions')
             bufmap('n', 'rn', '<cmd>lua vim.lsp.buf.rename()<cr>', '[R]e[N]ame')
             bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
             bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
