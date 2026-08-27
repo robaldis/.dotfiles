@@ -1,7 +1,5 @@
--- For csharp_ls
--- requires dotnet SDK 9
--- `dotnet tool install --global csharp-ls`
--- add that to the path
+-- csharp_ls requires the .NET SDK (pacman: dotnet-sdk); csharp-ls itself is
+-- installed by mason via `dotnet tool` into mason's own bin. No PATH changes needed.
 
 
 return {
@@ -61,84 +59,37 @@ return {
 
         require("fidget").setup({})
         require("mason").setup()
+
+        -- Apply cmp completion capabilities to every LSP server.
+        vim.lsp.config('*', {
+            capabilities = capabilities,
+        })
+
+        -- Per-server overrides merge on top of the built-in lsp/<server>.lua.
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    format = {
+                        enable = true,
+                        -- NOTE: the value should be STRING!!
+                        defaultConfig = {
+                            indent_style = "space",
+                            indent_size = "2",
+                        }
+                    }
+                }
+            }
+        })
+
+        -- Installed servers are enabled automatically via vim.lsp.enable()
+        -- (mason-lspconfig `automatic_enable`, default true).
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "csharp_ls",
+                "gopls",
                 --"omnisharp"
             },
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {
-                        capabilities = capabilities,
-                    }
-                end,
-                --["omnisharp"] = function()
-                --    -- Keymappings
-                --    local on_attach = function(client, bufnr)
-                --        -- Enable completion
-                --        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-                --    
-                --        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = '[K] Hover'})
-                --        vim.keymap.set('n', "<leader>gd", function() vim.lsp.buf.definition() end)
-                --        vim.keymap.set('n', "<leader>gi", function() vim.lsp.buf.implementation() end)
-                --        vim.keymap.set('n', "<leader>gr", function() require("telescope.builtin").lsp_references() end)
-                --        vim.keymap.set('n', "<leader>gD", function() vim.lsp.buf.declaration() end)
-                --        vim.keymap.set('n', "<leader>gt", function() vim.lsp.buf.type_definition() end)
-                --        vim.keymap.set('n', "<leader>e", function() vim.diagnostic.open_float() end)
-                --        vim.keymap.set('n', "<leader>rn", function() vim.lsp.buf.rename() end)
-                --        vim.keymap.set('n', "<leader>ca", function() vim.lsp.buf.code_action() end)
-                --        ih.on_attach(client, bufnr)
-                --    
-                --    end
-                --    local pid = vim.fn.getpid()
-                --    
-                --    local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
-                --    local lspconfig = require("lspconfig")
-                --        require('lspconfig').omnisharp.setup({
-                --            cmd = { omnisharp_bin,
-                --            "--languageserver",
-                --            "RoslynExtensionsOptions:EnableDecompilationSupport=true",
-                --            "RoslynExtensionsOptions:EnableAnalyzersSupport=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForLiteralParameters=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForIndexerParameters=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForObjectCreationParameters=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForOtherParameters=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatDifferOnlyBySuffix=false",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchMethodIntent=false",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchArgumentName=false",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitVariableTypes=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForLambdaParameterTypes=true",
-                --            "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true",
-                --            "--hostPID", tostring(pid) },
-                --            -- Additional configuration can be added here
-                --            on_attach = on_attach,
-                --            capabilities = capabilities
-                --        })
-                --    
-                --end,
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                format = {
-                                    enable = true,
-                                    -- Put format options here
-                                    -- NOTE: the value should be STRING!!
-                                    defaultConfig = {
-                                        indent_style = "space",
-                                        indent_size = "2",
-                                    }
-                                },
-                            }
-                        }
-                    }
-                end,
-            }
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -177,108 +128,3 @@ return {
         })
     end
 }
-
---local nnoremap = require("robert.keymap").nnoremap
---local inoremap = require("robert.keymap").inoremap
---local mason = require('mason')
---local masonConfig = require('mason-lspconfig')
---local cmp = require('cmp')
---
---require("inlay-hints").setup()
---local ih = require("inlay-hints")
---
----- Mason setups
---mason.setup()
---masonConfig.setup({
---    ensure_installed = { 'lua_ls', 'bashls', 'pyright' }
---})
---
----- completion setups
---cmp.setup({
---    snippet = {
---        expand = function(args)
---            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
---        end
---    },
---    mapping = cmp.mapping.preset.insert({
---        ['<C-Space>'] = cmp.mapping.complete(),
---        ['<tab>'] = cmp.mapping.select_next_item(),
---        ['<C-e>'] = cmp.mapping.abort(),
---        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---    }),
---    sources = {
---        { name = 'nvim_lsp' }
---    }, {
---        { name = 'buffer' }
---    }
---})
---local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
---
----- Keymappings
---local on_attach = function(client, bufnr)
---    -- Enable completion
---    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
---
---    vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = '[K] Hover'})
---    --nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
---    --nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
---    --nnoremap("<leader>gr", function() require("telescope.builtin").lsp_references() end)
---    --nnoremap("<leader>gD", function() vim.lsp.buf.declaration() end)
---    --nnoremap("<leader>gt", function() vim.lsp.buf.type_definition() end)
---    --nnoremap("<leader>e", function() vim.diagnostic.open_float() end)
---    --nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
---    --nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
---    ih.on_attach(client, bufnr)
---
---end
---
----- Server Setup
---masonConfig.setup_handlers {
---    -- The first entry (without a key) will be the default handler
---    -- and will be called for each installed server that doesn't have
---    -- a dedicated handler.
---    function(server_name) -- default handler (optional)
---        require("lspconfig")[server_name].setup {
---            on_attach = on_attach,
---            capabilities = capabilities
---        }
---    end,
---    -- Next, you can provide a dedicated handler for specific servers.
---    -- For example, a handler override for the `rust_analyzer`:
---    --[[
---    ["rust_analyzer"] = function ()
---        require("rust-tools").setup {}
---    end
---    ]] --
---}
----- Setup Csharp LSP
---
---
---local pid = vim.fn.getpid()
---
---local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
---
---vim.lsp.set_log_level('debug')
---
---require('lspconfig').omnisharp.setup({
---    cmd = { omnisharp_bin,
---    "--languageserver",
---    "RoslynExtensionsOptions:EnableDecompilationSupport=true",
---    "RoslynExtensionsOptions:EnableAnalyzersSupport=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:EnableForParameters=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForLiteralParameters=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForIndexerParameters=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForObjectCreationParameters=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForOtherParameters=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatDifferOnlyBySuffix=false",
---    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchMethodIntent=false",
---    "RoslynExtensionsOptions:InlayHintsOptions:SuppressForParametersThatMatchArgumentName=false",
---    "RoslynExtensionsOptions:InlayHintsOptions:EnableForTypes=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitVariableTypes=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForLambdaParameterTypes=true",
---    "RoslynExtensionsOptions:InlayHintsOptions:ForImplicitObjectCreation=true",
---    "--hostPID", tostring(pid) },
---    -- Additional configuration can be added here
---    on_attach = on_attach,
---    capabilities = capabilities
---})

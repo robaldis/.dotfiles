@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>', {desc = "Quick fix list [N]ext"})
-vim.keymap.set('n', '<C-p>', '<cmd>cnext<CR>', {desc = "Quick fix list [P]evious"})
+vim.keymap.set('n', '<C-p>', '<cmd>cprev<CR>', {desc = "Quick fix list [P]evious"})
 
 vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>')
 
