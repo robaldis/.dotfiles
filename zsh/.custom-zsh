@@ -1,0 +1,16 @@
+source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
+
+alias caps="setxkbmap -option ctrl:nocaps"
+alias gitpush="~/.local/bin/push-current-branch"
+
+# Kubectl
+alias k=kubectl
+# config
+alias kuc="kubectl config use-context"
+alias kcc="kubectl config current-context"
+alias kun="kubectl config set-context --current --namespace="
+
+alias kgp="kubectl get pods"
+
+export PATH="$PATH:/home/raldis/.dotnet/tools"
+
