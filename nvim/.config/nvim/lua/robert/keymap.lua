@@ -1,21 +1,33 @@
-local M = {}
 
-local function bind(op, outer_opts)
-    outer_opts = outer_opts or {noremap = true}
-    return function (lhs, rhs, opts)
-        opts = vim.tbl_extend("force", 
-            outer_opts,
-            opts or {}
-        )
-        vim.keymap.set(op, lhs, rhs, opts)
-    end
-end
+vim.g.mapleader = " "
 
-M.nmap = bind("n", {noremap = false})
-M.nnoremap = bind("n")
-M.vnoremap = bind("v")
-M.xnoremap = bind("x")
-M.inoremap = bind("i")
+vim.keymap.set("n", "<leader>pv", "<cmd>Ex<Cr>")
+
+vim.keymap.set('v', '<leader>y', '\"+y', {desc ='[Y]ank to clipboard'})
+vim.keymap.set('v', '<leader>d', '\"+d', {desc ='[D]elete to clipboard'})
+
+vim.keymap.set('i', '<C-c>', '<Esc>', {desc = 'Ctrl-c same as ESC'})
 
 
-return M
+vim.keymap.set('n', '<leader>h', '<C-w>h', {desc = '[h] move window up'})
+vim.keymap.set('n', '<leader>j', '<C-w>j', {desc = '[j] move window up'})
+vim.keymap.set('n', '<leader>k', '<C-w>k', {desc = '[k] move window up'})
+vim.keymap.set('n', '<leader>l', '<C-w>l', {desc = '[l] move window up'})
+
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<C-c>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('t', '<C-c><C-c>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>', {desc = "Quick fix list [N]ext"})
+vim.keymap.set('n', '<C-p>', '<cmd>cprev<CR>', {desc = "Quick fix list [P]evious"})
+
+vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>')
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = 'move selection down'})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = 'move selection up'})
+

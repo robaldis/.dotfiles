@@ -1,0 +1,14 @@
+general.import = [
+  "~/.config/alacritty/catppuccin-frappe.toml"
+]
+
+[window]
+
+opacity = 0.7
+
+[font]
+size = 15
+normal= { family = "UbuntuMono Nerd Font Mono", style= "Regular"}
+
+[env]
+TERM = "alacritty"
