@@ -1,4 +1,3 @@
 require("robert.set")
-require("robert.packer")
-require("robert.telescope")
-
+require("robert.keymap")
+require("robert.lazy_init")
