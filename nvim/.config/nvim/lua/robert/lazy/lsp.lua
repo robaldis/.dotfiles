@@ -88,6 +88,7 @@ return {
                 "lua_ls",
                 "csharp_ls",
                 "gopls",
+                "pylsp",
                 --"omnisharp"
             },
         })
